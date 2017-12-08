@@ -1,0 +1,68 @@
+{
+  "Food":[
+  {
+      "id": "f1",
+	    "type": "donut",
+	    "name": "Cake",
+      "topping_1": "None",
+      "topping_2": "Sugar",
+      "topping_3": "chocolate",
+      "topping_4": "white cream",
+      "topping_5": "choco chips",
+      "Price": "$7.50"
+    },
+
+    {
+		"id": "f2",
+		"type": "donut",
+		"name": "Raised",
+
+		"topping_1": "None",
+    "topping_2": "Glazed",
+    "topping_3": "Sugar",
+    "topping_4": "chocolate",
+    "topping_5": "maple",
+    "Price": "$8"
+  },
+
+	{
+		"id": "f3",
+		"type": "donut",
+		"name": "Choco",
+
+    "topping_1": "None",
+    "topping_2": "Glazed",
+    "topping_3": "Sugar",
+    "topping_4": "chocolate",
+    "topping_5": "choco powder sprinkle",
+    "Price": "$9"
+	},
+
+  {
+  "id": "f4",
+  "type": "donut",
+  "name": "Snow Flurry",
+
+  "topping_1": "None",
+  "topping_2": "Sugar",
+  "topping_3": "chocolate",
+  "topping_4": "Jam",
+  "topping_5": "Jelly",
+  "Price": "$10"
+},
+
+{
+"id": "f5",
+"type": "donut",
+"name": "Strawberry Frosted",
+
+"topping_1": "None",
+"topping_2": "Glazed",
+"topping_3": "Sugar",
+"topping_4": "White Cream",
+"topping_5": "Strawberry Syrup",
+"Price": "$6.75"
+}
+
+]
+}

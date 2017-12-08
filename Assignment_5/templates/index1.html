@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <script type="text/javascript" src="{{ url_for('static',filename='jquery-min.js') }}">
+    </script>​
+    <title>Assign 5</title>
+    <style>
+     th,td{
+    border: 1px solid black;
+
+    }
+
+</style>
+</head>
+
+
+  <body style="background-color:sky blue;">
+    <button onclick="showdata();" value="submit">submit</button>
+    <input type="text" id="txBx">
+
+    <table id="table" style="border: 1px solid black;" cellspacing="0" width="100%">
+        <caption>World of Donuts</caption>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>type</th>
+                <th>name</th>
+                <th>topping_1</th>
+                <th>topping_2</th>
+                <th>topping_3</th>
+                <th>topping_4</th>
+                <th>topping_5</th>
+                <th>price</th>
+            </tr>
+        </thead>
+
+    </table>
+    <script>
+    $(document).ready(function(){
+      showdata()
+      });
+    function showdata()
+      {
+          // alert("in");
+          // alert("in");
+          var x = $('#txBx').val();
+          if(typeof x == 'undefined')
+            x='';
+            console.log('sss '+x);
+
+           console.log("hello");
+          $.ajax({
+
+                url:window.location.origin +"/getFood/"+x,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                success: function(data){
+                // alert(data);
+                console.log('hello');
+                        $("#table").find("tr:gt(0)").remove();
+                        var dataItems="";
+                        // alert("in");
+                                var len = data.length;
+                              //  console.log(len);
+                                if(len > 0){
+                                    for(var i=0;i<len;i++){
+                                            dataItems += "<tr><td>"+data[i].id+"</td><td>"+data[i].type+"</td><td>"+data[i].name+"</td><td>"+data[i].topping_1+"</td><td>"+data[i].topping_2+"</td><td>"+data[i].topping_3+"</td><td>"+data[i].topping_4+"</td><td>"+data[i].topping_5+"</td><td>"+data[i].Price+"</td></tr>";
+                                    }
+                                    if(dataItems != ""){
+                                        $("#table").append(dataItems);
+                                    }
+                                }
+                }
+          });
+    }
+    </script>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
